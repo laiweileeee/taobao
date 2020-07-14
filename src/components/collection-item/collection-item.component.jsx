@@ -1,7 +1,6 @@
 import React from 'react';
 
 import './collection-item.styles.scss';
-import CollectionPreview from '../collection-preview/collection-preview.component';
 
 // () to skip return statement
 const CollectionItem = ({ id, name, imageUrl, price }) => {
