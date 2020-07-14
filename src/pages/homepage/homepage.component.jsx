@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react'
 
 import Directory from '../../components/directory/directory.component';
 
