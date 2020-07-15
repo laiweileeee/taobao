@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Open Sans Condensed', sans-serif;
+    letter-spacing: 0.6px;
     padding: 20px 60px;
 }
 
@@ -14,6 +15,7 @@ a:hover {
     text-decoration: underline;
 }
 
+/* for input and div misalignment*/
 * {
     box-sizing: border-box;
 }
