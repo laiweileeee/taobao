@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import './App.css';
@@ -32,10 +32,10 @@ class App extends React.Component {
           });
         });
 
-      } 
-        //on the course it says no else statement and setCurrentUser(userAuth)
-        setCurrentUser(userAuth);
-      
+      }
+      //on the course it says no else statement and setCurrentUser(userAuth)
+      setCurrentUser(userAuth);
+
     });
   }
 
@@ -51,12 +51,22 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
-          <Route path='/signin' component={SignInAndSignUp} />
+          <Route
+            exact
+            path='/signin'
+            render={() => this.props.currentUser ?
+              (<Redirect to='/' />) :
+              (<SignInAndSignUp />)}
+          />
         </Switch>
       </div>
     );
   }
 }
+
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+})
 
 //dispatching action objects to the reducers
 const mapDispatchToProps = (dispatch) => ({
@@ -65,5 +75,5 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 // first argument is null because App does not any state from reducers
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
