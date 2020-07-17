@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import { auth } from '../../firebase/firebase.util';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+import { selectCartHidden } from '../../redux/cart/cart.selectors';
+import { selectCurrentUser } from '../../redux/user/user.selector';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
@@ -46,10 +49,11 @@ const Header = ({ currentUser, hidden }) => {
 //state refers to the root reducer
 // ** This will be used anywhere we need properties from reducers
 //** destructuring user and cart of of 'state' in the parameter
-const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
-    // Previously was currentUser: state.user.currentUser
-    currentUser,
-    hidden
+const mapStateToProps = (state) => createStructuredSelector({
+    // Previously was currentUser: state.user.currentUser OR currentUser: selectCurrentUser(state), 
+    // but createStructuredSelector helps us automatically pass in the state to the reselectors
+    currentUser: selectCurrentUser,
+    hidden: selectCartHidden
 })
 
 //connect to pass the value from the reducer to the component 

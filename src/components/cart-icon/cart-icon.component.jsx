@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
 
@@ -20,13 +21,13 @@ const mapDispatchToProps = dispatch => ({
     toggleCartHidden: () => dispatch(toggleCartHidden())
 })
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => createStructuredSelector({
     //using reduce to accumulate the quantity number, starting from 0
     // This is a selector, pulling of a slice of the state, and reducing it to get a new output 
     // Bad performance, the selector will always be called and processed even if unrelated state is updated. 
     // Solution is to cache, memoize data so that if the data is the same, there is no need to re compute
     // React library re-selector solves this
-    itemCount: selectCartItemsCount(state)
+    itemCount: selectCartItemsCount
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartIcon);
