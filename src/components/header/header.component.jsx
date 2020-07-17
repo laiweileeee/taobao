@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { auth } from '../../firebase/firebase.util';
+import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 import './header.styles.scss';
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, hidden }) => {
     return (
         <div className="header">
 
@@ -31,15 +33,23 @@ const Header = ({ currentUser }) => {
                             SIGN IN
                         </Link>
                 }
+                <CartIcon />
             </div>
+            {
+                hidden ? null :
+                <CartDropdown />
+            }
         </div>
     )
 }
 
 //state refers to the root reducer
 // ** This will be used anywhere we need properties from reducers
-const mapStateToProps = (state) => ({
-    currentUser: state.user.currentUser
+//** destructuring user and cart of of 'state' in the parameter
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+    // Previously was currentUser: state.user.currentUser
+    currentUser,
+    hidden
 })
 
 //connect to pass the value from the reducer to the component 
