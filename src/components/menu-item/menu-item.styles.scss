@@ -9,6 +9,8 @@
     border-radius: 10px;
     box-shadow: 0 5px 10px 0px rgb(182, 161, 161);
     overflow: hidden;
+    // important for all buttons to be in the boxes
+    position: relative;
 
     &:hover {
       cursor: pointer;
