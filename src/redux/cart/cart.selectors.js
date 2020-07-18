@@ -1,3 +1,5 @@
+//selectors for when u need to pull state values 
+
 import { createSelector } from 'reselect';
 
  //input selector 

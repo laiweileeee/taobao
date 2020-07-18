@@ -54,6 +54,7 @@ class App extends React.Component {
       <div>
         <Header />
         <Switch>
+          {/* All pages nested in <Route/> have access to match, location and history props */}
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
           <Route exact path='/checkout' component={CheckoutPage} />
