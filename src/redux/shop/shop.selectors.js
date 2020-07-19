@@ -13,7 +13,8 @@ export const selectCollections = createSelector(
 export const selectCollectionForPreview = createSelector(
     [selectCollections],
     //Object.keys transforms contents of object into an array
-    collections => Object.keys(collections).map(key => collections[key])
+    // tenary operator to prevent null pointer exception
+    collections => collections ? Object.keys(collections).map(key => collections[key]) : []
 )
 
 //collectionUrlParam refers to 'hats', 'jackets' etc
@@ -21,5 +22,6 @@ export const selectCollectionForPreview = createSelector(
 export const selectCollection = memoize((collectionUrlParam) =>
     createSelector(
         [selectCollections],
-        collections => collections[collectionUrlParam]
+         // tenary operator to prevent null pointer exception
+        collections => collections ? collections[collectionUrlParam] : null
     ));

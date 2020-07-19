@@ -19,10 +19,11 @@ import { selectCurrentUser } from './redux/user/user.selector';
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
-  // listen to state changes from google
+  // anything you want to fire only ONCE goes here
   componentDidMount() {
     const { setCurrentUser } = this.props;
 
+    // listen to state changes from google
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
 
@@ -40,7 +41,6 @@ class App extends React.Component {
       }
       //on the course it says no else statement and setCurrentUser(userAuth)
       setCurrentUser(userAuth);
-
     });
   }
 
