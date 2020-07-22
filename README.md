@@ -2,10 +2,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 taobao
 -----------------------------------------------------------------------------------------------------------------------------------
-React-Redux!
-Integrated Firebase-auth and Firebase-database, 
-Stripe Checkout Payments Processing (Test).  
-App is Mobile Responsive! 
+React-Redux!  <br /> 
+Integrated Firebase-auth and Firebase-database,  <br /> 
+Stripe Checkout Payments Processing (Test).   <br /> 
+App is Mobile Responsive!  <br /> 
 
 ## Available Scripts
 
