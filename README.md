@@ -5,6 +5,7 @@ taobao
 React-Redux!  <br /> 
 Integrated Firebase-auth and Firebase-database,  <br /> 
 Stripe Checkout Payments Processing (Test).   <br /> 
+Simple loading animation during API requests <br /> 
 App is Mobile Responsive!  <br /> 
 
 ## Available Scripts
