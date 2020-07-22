@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === 'production') {
     //serve static files, path
     app.use(express.static(path.join(__dirname, 'client/build')));
 
-    // for every URL hit, if user wants to 'get' sth, send them the files HTML, CSS.. 
+    // for every URL hit, if user wants to 'get' sth, send them the files HTML, CSS.. ??
     app.get('*', function(req, res) {
         res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
     })
@@ -56,3 +56,5 @@ app.post('/payment', (req, res) => {
         }
     });
 });
+
+//For deployment, remember to remove buildpack for CRA
