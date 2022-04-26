@@ -3,4 +3,6 @@ E-commerce app made using React-Redux! Integrated Firebase-auth and Firebase-dat
 
 [taobao-live.herokuapp.com/](taobao-live.herokuapp.com/) (heroku loads slow so gotta be patient)
 
-![](https://github.com/laiweileeee/taobao/blob/master/taobao.gif)
+<p align="center">
+  <img src="taobao.gif" alt="animated" />
+</p>
